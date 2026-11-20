@@ -1,15 +1,15 @@
 // src/components/ListeArticles.jsx
-import ArticleCard from './ArticleCard';
+import ArticleCard from "./ArticleCard";
 
-function ListeArticles({ articles, favoris, onToggle }) {
+function ListeArticles({ articles, estFavori, onToggle }) {
   return (
     <div className="grille">
       {articles.map((article) => (
-        <ArticleCard 
-          key={article.id} // Clé stable (pas d'index)
-          article={article} 
-          estFavori={favoris.includes(article.id)} 
-          onToggle={() => onToggle(article.id)} 
+        <ArticleCard
+          key={article.id}
+          article={article}
+          estFavori={estFavori(article.id)}
+          onToggle={() => onToggle(article)}
         />
       ))}
     </div>
